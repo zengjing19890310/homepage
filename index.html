@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- Description -->
+    <title>Lichi</title>
+    <meta name="description" content="骊驰App发布">
+    <meta name="keywords" content="Lichi,Android,IOS,App">
+
+    <!-- Open Graph -->
+    <!--<meta property="og:site_name" content="Ginventory" />-->
+    <!--<meta property="og:title" content="Ginventory" />-->
+    <!--<meta property="og:description" content="Find the Perfect Serve for every gin in the world. Just search for a gin, tonic or botanical and find the best Gin & Tonic combinations according to distillers and connoisseurs." />-->
+    <!--<meta property="og:type" content="website" />-->
+    <!--<meta property="og:url" content="http://www.ginventory.co" />-->
+    <!--<meta property="og:image" content="http://www.ginventory.co/img/share-img/og-1200_630.jpg" />-->
+
+    <!-- Twitter Card -->
+    <!--<meta name="twitter:card" content="app">-->
+    <!--<meta name="twitter:site" content="@GinventoryApp">-->
+    <!--<meta name="twitter:description" content="Find the Perfect Serve for every gin in the world. Just search for a gin, tonic or botanical and find the best Gin & Tonic combinations according to distillers and connoisseurs.">-->
+    <!--<meta name="twitter:app:country" content="BE">-->
+    <!--<meta name="twitter:app:name:iphone" content="Ginventory">-->
+    <!--<meta name="twitter:app:id:iphone" content="998106458">-->
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Detect IE 10+ -->
+    <script>
+        (function detectIE() {
+            var ua 		= window.navigator.userAgent;
+            var version = -1;
+
+            var msie = ua.indexOf('MSIE ');
+            if (msie > 0) { version = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10); }
+            var trident = ua.indexOf('Trident/');
+            if (trident > 0) { var rv = ua.indexOf('rv:'); version = parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10); }
+            var edge = ua.indexOf('Edge/');
+            if (edge > 0) { version = parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10); }
+            if (version != -1) { document.documentElement.className += ' ie' + version; }
+        })();
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./build/css/style.css">
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="/img/app-icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/app-icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/app-icons/apple-touch-icon_152.png">
+
+    <!-- Web App -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+
+<body class="preload" data-current-section="0">
+
+<div id="wrapper">
+
+    <div id="borders">
+        <div class="border hor top"></div>
+        <div class="border hor bot"></div>
+        <div class="border vert left"></div>
+        <div class="border vert right"></div>
+    </div>
+
+    <div id="illustration-01">
+        <div class="bottle"></div>
+        <div class="branches">
+            <div class="branch-01"></div>
+            <div class="branch-02"></div>
+            <div class="branch-03"></div>
+            <div class="branch-top"></div>
+            <div class="leaf-01"></div>
+            <div class="leaf-02"></div>
+        </div>
+    </div>
+
+    <div id="stripe"></div>
+
+    <div id="video-container">
+        <div class="pic-wrapper">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <!--<video id="video" preload="auto" controls onplay="this.controls=false">-->
+            <!--<source src="/videos/ginventory-video.mp4" type="video/mp4">-->
+            <!--<source src="/videos/ginventory-video.webm" type="video/webm">-->
+        <!--</video>-->
+    </div>
+
+    <div id="timeline-ctn">
+        <div id="timeline-track">
+            <div id="timeline-bar"></div>
+        </div>
+        <!-- <div id="section-number"></div> -->
+    </div>
+
+
+
+    <header id="header" class="nav-container noselect">
+
+        <h1 id="logo"><span>G</span><span>i</span><span>n</span><span>v</span><span>e</span><span>n</span><span>t</span><span>o</span><span>r</span><span>y</span></h1>
+
+        <nav id="main-nav">
+            <button class="nav-btn up" disabled>Go up<span></span></button>
+            <ul>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#find">Find</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#suggest">Suggest</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+            </ul>
+            <button class="nav-btn down">Go down<span></span></button>
+        </nav>
+
+        <div id="sub-nav">
+            <ul>
+                <li><a href="mailto:contact@ginventory.co">Contact us</a></li>
+                <li><a href="https://itunes.apple.com/be/app/ginventory-gin-tonic-in-perfect/id998106458" class="download-btn yellow" target="_blank">Download on the App Store</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=be.reed.ginventory" class="download-btn yellow android" target="_blank">Download on Google Play</a></li>
+            </ul>
+        </div>
+
+    </header><!-- /#header -->
+
+
+
+    <main id="content" role="main">
+
+
+        <section id="home">
+            <p class="tagline">Find the <em>perfect</em> serve.<br> <strong>Gin & Tonic</strong></p>
+        </section>
+
+
+
+        <div id="sections-list-container">
+
+            <div class="swiper-container">
+
+                <ol id="sections-list" class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <section id="search">
+                            <figure>
+                                <img src="./img/mockup/ginventory-screenshot-search.jpg" alt="Ginventory - Search for Gins, Tonics or Botanicals">
+                            </figure>
+
+                            <article>
+                                <h2>Search</h2>
+                                <p>Search for a Gin, Tonic<br> or Garnish</p>
+                            </article>
+                        </section>
+                    </li>
+
+
+                    <li class="swiper-slide">
+                        <section id="find">
+                            <figure>
+                                <img src="./img/mockup/ginventory-screenshot-find.jpg" alt="Ginventory - Find the perfect serve Gin & Tonic">
+                            </figure>
+
+                            <article>
+                                <h2>Find</h2>
+                                <p>Find the perfect serve<br> Gin & Tonic</p>
+                            </article>
+                        </section>
+                    </li>
+
+
+                    <li class="swiper-slide">
+                        <section id="explore">
+                            <figure>
+                                <img src="./img/mockup/ginventory-screenshot-data.jpg" alt="Ginventory - Discover over 1300 Gins and 100 Tonics">
+                            </figure>
+
+                            <article>
+                                <h2>Explore</h2>
+                                <p>Discover nearly 1500 Gins<br> and 100 Tonics</p>
+                            </article>
+                        </section>
+                    </li>
+
+
+                    <li class="swiper-slide">
+                        <section id="suggest">
+                            <figure>
+                                <img src="./img/mockup/ginventory-screenshot-suggest.jpg" alt="Ginventory - Your prefered Gin is not in database? Just tell us!">
+                            </figure>
+
+                            <article>
+                                <h2>Suggest</h2>
+                                <p>Your preferred Gin is not in the App? Just tell us!</p>
+                            </article>
+                        </section>
+                    </li>
+                </ol><!-- /.swiper-wrapper -->
+
+                <div id="slider-images">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div><!-- /.swiper-container -->
+
+            <ul id="slider-nav">
+                <li><a href="#search">Search</a></li>
+                <li><a href="#find">Find</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#suggest">Suggest</a></li>
+            </ul>
+
+        </div><!-- /#sections-list-container -->
+
+
+
+        <section id="download">
+
+            <article>
+                <h2>Now Available for Download</h2>
+                <p>Now Available for Download</p>
+
+                <ul class="download-list">
+                    <li><a href="https://itunes.apple.com/be/app/ginventory-gin-tonic-in-perfect/id998106458" class="download-btn black" target="_blank">Download on the App Store</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=be.reed.ginventory" class="download-btn black android" target="_blank">Download on Google Play</a></li>
+                </ul>
+
+            </article>
+
+            <div id="illustration-02"></div>
+
+        </section>
+
+
+    </main><!-- /#content -->
+
+
+
+    <footer id="footer">
+        <h3>Ginventory</h3>
+        <div class="footer-share">
+            <h4>Share the Love</h4>
+            <ul>
+                <li><a class="share-fb" href="https://www.facebook.com/ginventory" target="_blank">Facebook</a></li>
+                <li><a class="share-tw" href="https://twitter.com/GinventoryApp" target="_blank">Twitter</a></li>
+            </ul>
+        </div>
+        <p class="footer-note">Proudly Made by <a href="http://www.reed.be" target="_blank">Reed</a></p>
+    </footer><!-- /#footer -->
+
+</div><!-- /#wrapper -->
+
+<script type="text/javascript" src="./build/js/all.js"></script>
+
+</body>
+
+</html>
