@@ -12,7 +12,7 @@ function initNavigation() {
     $("section").each(function (e) {
         sections[e] = new Section(e)
     }),
-        getTransitionValuesNew()
+        getTransitionValuesNew();
 }
 
 function Section(e) {
@@ -23,12 +23,24 @@ function Section(e) {
         t.title = t.DOMel.find("h2"),
         t.paragraph = t.DOMel.find("p"),
         t.animate = function (e, i) {
-            0 === currentSection ? $body.removeClass("started") : $body.addClass("started"),
-                $body.attr("data-forward", e),
-                $body.attr("data-current-section", currentSection),
-                listItems.removeClass("current"),
-                $(".nav-btn").prop("disabled", !1),
-            currentSection === sections.length - 1 && $(".nav-btn.down").prop("disabled", !0);
+            if(0 === currentSection) {
+                $body.removeClass("started");
+            }else {
+                //控制侧边栏上下按钮样式
+                if(1 === currentSection){
+                    $(".nav-btn.up").attr("disabled",!0);
+                }else if(currentSection>1 && currentSection<4){
+                    $(".nav-btn").prop("disabled", !1);
+                }
+                currentSection === sections.length - 1 && $(".nav-btn.down").prop("disabled", !0);
+
+                $body.addClass("started");
+                $body.attr("data-forward", e);
+                $body.attr("data-current-section", currentSection);
+                listItems.removeClass("current");
+
+
+            }
             var n = e ? trValues[t.index].article.delay.forward : trValues[t.index].article.delay.backward;
             if (i) {
                 var r = stripe._gsTransform ? stripe._gsTransform.rotation : 0;
@@ -92,7 +104,7 @@ function Section(e) {
                 }, n);
 
             //切换显示相应的手机画面
-            if (currentSection >= 0 && currentSection <= 4) {
+            if (currentSection >= 1 && currentSection <= 4) {
                 $('#video-container .pic-wrapper ul>li').fadeOut();
                 $('#video-container .pic-wrapper ul>li:nth-child(' + currentSection + ')').fadeIn();
                 if (currentSection === 4) {
@@ -12223,7 +12235,7 @@ $(document).bind(mousewheelevt, function (e) {
         if (!transitioning) {
             t.preventDefault();
             var n;
-            i > 0 ? currentSection > 0 && (currentSection--,
+            i > 0 ? currentSection > 1 && (currentSection--,
                 n = !1) : i < 0 && currentSection < sections.length - 1 && (currentSection++,
                 n = !0),
             0 !== i && (transitioning = !0,
@@ -12236,7 +12248,7 @@ $(document).bind(mousewheelevt, function (e) {
         if (!transitioning && t.indexOf(e.which) !== -1) {
             var i;
             transitioning = !0,
-                37 === e.which || 38 === e.which ? currentSection > 0 && (currentSection--,
+                37 === e.which || 38 === e.which ? currentSection > 1 && (currentSection--,
                     i = !1) : currentSection < sections.length - 1 && (currentSection++,
                     i = !0),
                 sections[currentSection].animate(i)
@@ -12248,8 +12260,9 @@ $(document).bind(mousewheelevt, function (e) {
             transitioning = !0,
                 $(".nav-btn").prop("disabled", !1);
             var t = !!$(this).hasClass("down");
-            t ? currentSection < sections.length - 1 && currentSection++ : currentSection > 0 && currentSection--,
-                sections[currentSection].animate(t)
+            //currentSection为第一张时不可向前翻动，并且不应执行动画
+            t ? currentSection < sections.length - 1 && currentSection++ : currentSection > 1 && currentSection--,
+                sections[currentSection].animate(t);
         }
     }),
     $(document).on("click touchend", ".newsletter-btn", function (e) {
@@ -12284,7 +12297,13 @@ $(document).bind(mousewheelevt, function (e) {
         layoutSettings(),
             initNavigation(),
             // $(video).attr("controls", !1)
-            isiOS ? $("html").addClass("iOS") : $("html").removeClass("iOS")
+            isiOS ? $("html").addClass("iOS") : $("html").removeClass("iOS");
+        if (currentSection === 0) {
+            currentSection++;
+            setTimeout(function () {
+                sections[currentSection].animate()
+            }, 150);
+        }
     }),
     $(window).load(function () {
         $body.removeClass("preload")

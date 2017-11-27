@@ -1827,7 +1827,7 @@ body[data-current-section="5"] #logo span {
     border: none;
     background: none;
     transform: translate3d(56px, 0, 0);
-    transition: .5s cubic-bezier(.455, .03, .515, .955)
+    transition: .5s cubic-bezier(.455, .03, .515, .955);
 }
 
 .nav-btn:after {
