@@ -23,13 +23,13 @@ function Section(e) {
         t.title = t.DOMel.find("h2"),
         t.paragraph = t.DOMel.find("p"),
         t.animate = function (e, i) {
-            if(0 === currentSection) {
+            if (0 === currentSection) {
                 $body.removeClass("started");
-            }else {
+            } else {
                 //控制侧边栏上下按钮样式
-                if(1 === currentSection){
-                    $(".nav-btn.up").attr("disabled",!0);
-                }else if(currentSection>1 && currentSection<4){
+                if (1 === currentSection) {
+                    $(".nav-btn.up").attr("disabled", !0);
+                } else if (currentSection > 1 && currentSection < 4) {
                     $(".nav-btn").prop("disabled", !1);
                 }
                 currentSection === sections.length - 1 && $(".nav-btn.down").prop("disabled", !0);
@@ -38,8 +38,6 @@ function Section(e) {
                 $body.attr("data-forward", e);
                 $body.attr("data-current-section", currentSection);
                 listItems.removeClass("current");
-
-
             }
             var n = e ? trValues[t.index].article.delay.forward : trValues[t.index].article.delay.backward;
             if (i) {
@@ -165,16 +163,18 @@ function TabletScroll() {
                 threshold: 100,
                 allowPageScroll: "none",
                 swipeUp: function () {
+                    var curr = currentSection;
                     !transitioning && currentSection < sections.length - 1 && (transitioning = !0,
                         currentSection++,
                         forward = !0,
-                        sections[currentSection].animate(forward))
+                    curr !== currentSection && sections[currentSection].animate(forward))
                 },
                 swipeDown: function () {
-                    !transitioning && currentSection > 0 && (transitioning = !0,
+                    var curr = currentSection;
+                    !transitioning && currentSection > 1 && (transitioning = !0,
                         currentSection--,
                         forward = !1,
-                        sections[currentSection].animate(forward))
+                    curr !== currentSection && sections[currentSection].animate(forward))
                 }
             })
     }
@@ -420,8 +420,8 @@ function getTransitionValuesNew() {
             },
             article: {
                 delay: {
-                    forward: 0,
-                    backward: 0
+                    forward: 300,
+                    backward: 300
                 }
             },
             timelineCtn: {
@@ -12231,27 +12231,31 @@ $(document).bind(mousewheelevt, function (e) {
         e.preventDefault();
         var t = window.event || e
             , t = t.originalEvent ? t.originalEvent : t
-            , i = "wheel" === t.type ? t.wheelDelta : t.detail * -40;
+            , i = "wheel" === t.type ? t.wheelDelta : t.detail * -1;//i可以控制滚动导致翻页的间隔，之前-1为-40
         if (!transitioning) {
             t.preventDefault();
-            var n;
+            var n, now = currentSection;
             i > 0 ? currentSection > 1 && (currentSection--,
                 n = !1) : i < 0 && currentSection < sections.length - 1 && (currentSection++,
                 n = !0),
-            0 !== i && (transitioning = !0,
+            (0 !== i && now !== currentSection) && (transitioning = !0,
                 sections[currentSection].animate(n))
         }
     }
 }),
     $(document).keydown(function (e) {
         var t = [37, 38, 39, 40];
+        //transitioning正在播放动画中
         if (!transitioning && t.indexOf(e.which) !== -1) {
-            var i;
+            var i, now = currentSection;
             transitioning = !0,
                 37 === e.which || 38 === e.which ? currentSection > 1 && (currentSection--,
                     i = !1) : currentSection < sections.length - 1 && (currentSection++,
                     i = !0),
-                sections[currentSection].animate(i)
+                    now !== currentSection && sections[currentSection].animate(i),
+                    setTimeout(function(){
+                        transitioning = !1
+                    },0);
         }
     }),
     $(document).on("click touchend", ".nav-btn", function (e) {

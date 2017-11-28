@@ -2566,6 +2566,8 @@ body[data-current-section="5"] #illustration-02 {
 
     #sections-list-container #sections-list section article h2 {
         font-size: 1.8rem;
+        letter-spacing: normal;
+        margin-right:0;
     }
 
     #sections-list-container #sections-list section article p {
