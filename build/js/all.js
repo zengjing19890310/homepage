@@ -12310,7 +12310,10 @@ $(document).bind(mousewheelevt, function (e) {
         }
     }),
     $(window).load(function () {
-        $body.removeClass("preload")
+        $body.removeClass("preload");
+        $('.download-btn').click(function(){
+            alert("功能尚在开发中,敬请期待!");
+        });
     }),
     $(window).resize(function () {
         layoutSettings(),
