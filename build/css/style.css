@@ -1607,8 +1607,8 @@ body[data-current-section="5"] .footer-share {
     font-style: normal;
     font-size: .8rem;
     line-height: 5.5rem;
-    text-transform: uppercase;
-    letter-spacing: .3rem;
+    /*text-transform: uppercase;*/
+    /*letter-spacing: .3rem;*/
     color: #a4a4a4;
     transform: translate3d(0, 55px, 0);
     transition: 1.5s cubic-bezier(.785, .135, .15, .86)
