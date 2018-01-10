@@ -12335,18 +12335,19 @@ var hideModal = function () {
 $(window).ready(function () {
     var $androidDownloadButton = $('.download-btn.android'),
         $iosDownloadButton = $('.download-btn.ios');
-    $.ajax({
-        url: "http://app.lichijituan.cn:8888/version/new",
-        type: "get",
-        success: function (response) {
-            if (response.code === 0 && response.msg === "成功") {
-                var data = response.data;
-                $androidDownloadButton.attr("href", data.url);
-            }
-        },
-        error: function () {
-
-        }
-    });
-    $iosDownloadButton.attr("href","https://www.pgyer.com/rongkaixin");
+    // $.ajax({
+    //     url: "http://app.lichijituan.cn:8888/version/new",
+    //     type: "get",
+    //     success: function (response) {
+    //         if (response.code === 0 && response.msg === "成功") {
+    //             var data = response.data;
+    //             $androidDownloadButton.attr("href", data.url);
+    //         }
+    //     },
+    //     error: function () {
+    //
+    //     }
+    // });
+    $androidDownloadButton.attr("href", "https://www.pgyer.com/rongkaixin");
+    $iosDownloadButton.attr("href", "https://www.pgyer.com/8D2B");
 });
