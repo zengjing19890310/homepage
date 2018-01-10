@@ -12252,10 +12252,10 @@ $(document).bind(mousewheelevt, function (e) {
                 37 === e.which || 38 === e.which ? currentSection > 1 && (currentSection--,
                     i = !1) : currentSection < sections.length - 1 && (currentSection++,
                     i = !0),
-                    now !== currentSection && sections[currentSection].animate(i),
-                    setTimeout(function(){
-                        transitioning = !1
-                    },0);
+            now !== currentSection && sections[currentSection].animate(i),
+                setTimeout(function () {
+                    transitioning = !1
+                }, 0);
         }
     }),
     $(document).on("click touchend", ".nav-btn", function (e) {
@@ -12332,9 +12332,21 @@ var hideModal = function () {
     $('#contact-us').fadeOut();
 };
 
-// var changeTo = function(no){
-//     console.log(no);
-//     console.log(currentSection);
-//     currentSection = no;
-//     sections[currentSection].animate();
-// };
+$(window).ready(function () {
+    var $androidDownloadButton = $('.download-btn.android'),
+        $iosDownloadButton = $('.download-btn.ios');
+    $.ajax({
+        url: "http://app.lichijituan.cn:8888/version/new",
+        type: "get",
+        success: function (response) {
+            if (response.code === 0 && response.msg === "成功") {
+                var data = response.data;
+                $androidDownloadButton.attr("href", data.url);
+            }
+        },
+        error: function () {
+
+        }
+    });
+    $iosDownloadButton.attr("href","https://www.pgyer.com/rongkaixin");
+});
