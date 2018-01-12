@@ -12252,10 +12252,20 @@ $(document).bind(mousewheelevt, function (e) {
                 37 === e.which || 38 === e.which ? currentSection > 1 && (currentSection--,
                     i = !1) : currentSection < sections.length - 1 && (currentSection++,
                     i = !0),
+        <<<<<<<
+            HEAD
             now !== currentSection && sections[currentSection].animate(i),
                 setTimeout(function () {
                     transitioning = !1
                 }, 0);
+        ======
+            =
+                now !== currentSection && sections[currentSection].animate(i),
+                setTimeout(function () {
+                    transitioning = !1
+                }, 0);
+        >>>>>>>
+            ac15c9e39ceee2a32d61fc40018360209badb403
         }
     }),
     $(document).on("click touchend", ".nav-btn", function (e) {
